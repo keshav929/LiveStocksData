@@ -10,7 +10,7 @@ export class AppComponent implements OnInit{
   title = 'app';
   stockData = [];
 
-  ngOnInit() 
+  ngOnInit()
   {
      this.getStockData();
   }
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     var ws = new $WebSocket("ws://stocks.mnet.website");
 
     ws.onMessage(
-      (msg: MessageEvent)=> 
+      (msg: MessageEvent)=>
       {
           this.updateStockData(msg.data);
       },
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
   {
 
       let sData = JSON.parse(data);
-      for (let i = 0; i < sData.length; i++) 
+      for (let i = 0; i < sData.length; i++)
       {
         let singleData = sData[i];
         let isExist = false;
@@ -42,6 +42,7 @@ export class AppComponent implements OnInit{
           {
             isExist = true;
             let lastTime = '';
+            this.stockData[j][2] = "A few seconds ago";
             if(singleData[1]>this.stockData[j][1])
             {
               this.stockData[j][4] = "riseUpdate";
@@ -75,7 +76,7 @@ export class AppComponent implements OnInit{
         let timeDifference = currentTime - this.stockData[k][3];
         if(timeDifference < 60000)
         {
-            
+
             if(Math.floor(timeDifference/1000)>3)
             {
                 this.stockData[k][2] = Math.floor(timeDifference/1000)+" seconds ago";
@@ -90,7 +91,7 @@ export class AppComponent implements OnInit{
             let hours = this.stockData[k][3].getHours();
             let mid = this.getTimeSuffix(hours);
             let minutes = this.stockData[k][3].getMinutes();
-            
+
             this.stockData[k][2] = hours+":"+minutes+" "+mid;
         }
         else
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit{
 
   getTimeSuffix(hours)
   {
-    hours = (hours+24-2)%24; 
+    hours = (hours+24-2)%24;
     var mid='AM';
     if(hours==0)
     {

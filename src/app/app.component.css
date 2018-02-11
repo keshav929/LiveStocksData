@@ -1,3 +1,7 @@
+*{
+	margin:0px;
+	padding:0px;
+}
 .riseUpdate
 {
 	background-color: green;
@@ -12,6 +16,9 @@
 {
 	background-color: white;
 	color: black;
+}
+table{
+	margin-bottom: 50px;
 }
 th{
 	color:lightblue;

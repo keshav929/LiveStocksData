@@ -1,0 +1,23 @@
+.riseUpdate
+{
+	background-color: green;
+	color: white;
+}
+.fallUpdate
+{
+	background-color: red;
+	color: white;
+}
+.firstUpdate
+{
+	background-color: white;
+	color: black;
+}
+th{
+	color:lightblue;
+}
+td{
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
